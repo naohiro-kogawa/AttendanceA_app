@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  
+  #拠点一覧
+  # resources :points do
+  #   member do
+      
+  get '/points',  to: 'points#index'
+  get '/points/new',  to: 'points#new'
+  post 'points/', to: 'points#create'
+ 
+  
   root 'static_pages#top'
   get '/signup', to: 'users#new'
 

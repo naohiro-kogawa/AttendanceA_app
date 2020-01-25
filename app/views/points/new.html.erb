@@ -1,0 +1,23 @@
+<% provide(:title, 'Point add') %>
+<% provide(:class_text, 'pointadd') %>
+<% provide(:button_text, '追加') %>
+
+<h1>拠点追加</h1>
+
+<div class="row">
+   <div class="col-md-6 col-md-offset-3">
+    <%= form_with model: @point do |f| %>
+    
+      <%= f.label '拠点名', class: "label-#{yield(:class_text)}" %>
+      <%= f.text_field :point_name, class: "form-control" %>
+    
+      <%= f.label '拠点番号', class: "label-#{yield(:class_text)}" %>
+      <%= f.text_field :point_number, class: "form-control" %>
+    
+      <%= f.label '勤怠種類', class: "label-#{yield(:class_text)}" %>
+      <%= f.text_field :attendance_type, class: "form-control" %>
+    
+      <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
+    <% end %>
+  </div>
+</div>
