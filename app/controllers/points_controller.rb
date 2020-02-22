@@ -5,6 +5,7 @@ class PointsController < ApplicationController
   end  
   
   def show
+    @point = Point.find(params[:id])
   end
   
   def new
@@ -23,14 +24,29 @@ class PointsController < ApplicationController
   end  
   
   def edit
+    @point = Point.find(params[:id])
   end
+  
+  def update
+    @point = Point.find(params[:id])
+    if @point.update_attributes(points_params)
+      flash[:success] = "ユーザー情報を更新しました。"
+      redirect_to points_path
+    else
+      render :edit
+    end
+  end  
 
   def destroy
-  end
+    @point = Point.find(params[:id])
+    @point.destroy
+    flash[:success] = "#{@point.point_name}のデータを削除しました。"
+    redirect_to points_path
+  end  
 
   private
 
     def points_params
-      params.require(:point).permit(:point_name, :point_number, :attendance_type)
+      params.require(:point).permit(:point_number, :point_name, :attendance_type)
     end
 end

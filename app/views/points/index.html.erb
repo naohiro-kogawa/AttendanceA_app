@@ -16,8 +16,8 @@
       <tbody>
         <% @points.each do |point| %>
         <tr>
-        <th><%= link_to "拠点情報修正","#", class: "btn btn-primary" %></th>
-        <th><%= link_to "削除","#", class: "btn btn-primary" %></th>
+        <th><%= link_to "拠点情報編集", edit_point_path(point) , class: "btn btn-primary" %></th>
+        <th><%= link_to "削除", point_path(point) , method: :delete , class: "btn btn-primary" %></th>
         <th><%= point.point_number %></th>
         <th colspan="8"><%= point.point_name %></th>
         <th colspan="5"><%= point.attendance_type %></th>
@@ -25,5 +25,5 @@
         <% end %>
       </tbody>
   </table>
-   <td><%= link_to "拠点情報追加", points_new_path , class: "btn btn-primary" %></td>
+   <td><%= link_to "拠点情報追加", new_point_path , class: "btn btn-primary" %></td>
 </div>

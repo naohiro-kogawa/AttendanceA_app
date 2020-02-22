@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   
   #拠点一覧
-  # resources :points do
-  #   member do
+   resources :points
       
-  get '/points',  to: 'points#index'
-  get '/points/new',  to: 'points#new'
-  post 'points/', to: 'points#create'
+  # get '/points',  to: 'points#index'
+  # get '/points/new',  to: 'points#new'
+  # post 'points/', to: 'points#create'
+  # get 'points/:id' , to: 'points#show'
+  # get 'points/:id/edit', to: 'points#edit' ,as: 'edit_point'
+  # patch 'points/:id', to: 'points#update'
+  # delete 'points/:id', to: 'points#destroy'
  
   
   root 'static_pages#top'
