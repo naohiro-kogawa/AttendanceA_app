@@ -18,8 +18,7 @@ class PointsController < ApplicationController
       flash[:success] = '拠点情報を追加しました。'
       redirect_to points_path
     else
-      flash[:danger] = "拠点情報を追加できませんでした。"
-      redirect_to points_path
+      render :new
     end
   end  
   
@@ -30,7 +29,7 @@ class PointsController < ApplicationController
   def update
     @point = Point.find(params[:id])
     if @point.update_attributes(points_params)
-      flash[:success] = "ユーザー情報を更新しました。"
+      flash[:success] = "拠点情報を更新しました。"
       redirect_to points_path
     else
       render :edit
@@ -47,6 +46,6 @@ class PointsController < ApplicationController
   private
 
     def points_params
-      params.require(:point).permit(:point_number, :point_name, :attendance_type)
+      params.require(:point).permit(:point_name,:point_number,:attendance_type)
     end
 end

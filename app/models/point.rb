@@ -1,6 +1,6 @@
 class Point < ApplicationRecord
     
-  validates :point_name, presence: true
-  validates :point_number, length: { in: 1..50 }, allow_blank: true
+  validates :point_name, presence: true ,length: { maximum: 30 }  
+  validates :point_number, presence: true , numericality:{ less_than_or_equal_to: 100 } #指定された値と等しいか、あるいは小さいか
   validates :attendance_type, presence: true    
 end

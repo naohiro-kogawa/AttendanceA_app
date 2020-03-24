@@ -18,8 +18,8 @@
         <tr>
         <th><%= link_to "拠点情報編集", edit_point_path(point) , class: "btn btn-primary" %></th>
         <th><%= link_to "削除", point_path(point) , method: :delete , class: "btn btn-primary" %></th>
-        <th><%= point.point_number %></th>
-        <th colspan="8"><%= point.point_name %></th>
+        <th><%= point.point_name %></th>
+        <th colspan="8"><%= point.point_number %></th>
         <th colspan="5"><%= point.attendance_type %></th>
         <tr>
         <% end %>

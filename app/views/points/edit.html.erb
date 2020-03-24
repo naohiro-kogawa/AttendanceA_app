@@ -1,5 +1,5 @@
 <% provide(:title, 'Point edit') %>
-<% provide(:class_text, 'point edit') %>
+<% provide(:class_text,'pointedit') %>
 <% provide(:button_text, '送信') %>
 
 <h1>拠点情報の編集</h1>
@@ -7,17 +7,17 @@
 <div class="row">
    <div class="col-md-6 col-md-offset-3">
     <%= form_with model: @point do |f| %>
-      <%= render 'points/error_messages' %>
+      <%= render 'shared/error_points_messages' , object: @point %>
     
       <%= f.label '拠点名', class: "label-#{yield(:class_text)}" %>
       <%= f.text_field :point_name, class: "form-control" %>
     
       <%= f.label '拠点番号', class: "label-#{yield(:class_text)}" %>
-      <%= f.text_field :point_number, class: "form-control" %>
+      <%= select_tag :point_number, options_for_select((1..100).to_a) %><br></br>
     
       <%= f.label '勤怠種類', class: "label-#{yield(:class_text)}" %>
-      <%= f.text_field :attendance_type, class: "form-control" %>
-    
+      <%= f.select :attendance_type,[["出勤", "出勤"], ["退勤", "退勤"]], include_blank: "選択して下さい", class: "form-control" %>
+
       <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
     <% end %>
   </div>
