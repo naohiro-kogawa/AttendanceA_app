@@ -13,7 +13,7 @@
       <%= f.text_field :point_name, class: "form-control" %>
     
       <%= f.label '拠点番号', class: "label-#{yield(:class_text)}" %>
-      <%= select_tag :point_number, options_for_select((1..100).to_a) %><br></br>
+      <%= f.select :point_number ,options_for_select(1..50) %><br></br>
       
       <%= f.label '勤怠種類', class: "label-#{yield(:class_text)}" %>
       <%= f.select :attendance_type,[["出勤", "出勤"], ["退勤", "退勤"]], include_blank: "選択して下さい", class: "form-control" %>
@@ -22,3 +22,6 @@
     <% end %>
   </div>
 </div>
+
+<!--モデルに関連する場合は、selectメソッドで選択ボックスを作る-->
+<!--モデルに関連しない場合は、select_tagメソッドで選択ボックスを作る-->
