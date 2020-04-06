@@ -5,21 +5,21 @@
   <%= will_paginate %>
   
      <!--  検索拡張機能  -->
-<div class="pull-right">
-  <div class="input-group">
-    <div class="form-group room-in ">
-    <p>ユーザー名検索</p>
-      <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
-        <div class="input-group">
-          <input type="text" name="search" id="search" placeholder="キーワードを入力..." class="form-control">
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-primary">検索</button>
-          </span>
-        </div>
-     </form>    
-      </div>
-  </div>
-</div>
+<!--<div class="pull-right">-->
+<!--  <div class="input-group">-->
+<!--    <div class="form-group room-in ">-->
+<!--    <p>ユーザー名検索</p>-->
+<!--      <form action="/users" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">-->
+<!--        <div class="input-group">-->
+<!--          <input type="text" name="search" id="search" placeholder="キーワードを入力..." class="form-control">-->
+<!--          <span class="input-group-btn">-->
+<!--            <button type="submit" class="btn btn-primary">検索</button>-->
+<!--          </span>-->
+<!--        </div>-->
+<!--     </form>    -->
+<!--      </div>-->
+<!--  </div>-->
+<!--</div>-->
   
   
   <table class="table table-condensed table-hover" id="table-users">
@@ -51,7 +51,7 @@
         <% end %>
         <td class="center">
           <% if current_user.admin? && !current_user?(user) %>
-            <%= link_to "基本情報編集", edit_basic_info_user_path(user), remote: true, class: "btn btn-success" %>
+            <%= link_to "基本情報編集", edit_basic_info_user_path(user), class: "btn btn-success" %>  
             <%= link_to "削除", user, method: :delete,
                 data: { confirm: "削除してよろしいですか？" }, class: "btn btn-danger" %>
           <% end %>
@@ -63,4 +63,6 @@
 </div>
 
 <!--モーダルウインドウ表示-->
-<div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<!--<div id="edit-basic-info" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>-->
+
+<!--モーダルの場合はremote true-->

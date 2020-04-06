@@ -16,10 +16,10 @@ class PointsController < ApplicationController
     @point = Point.new(points_params)
     if @point.save
       flash[:success] = '拠点情報を追加しました。'
-      redirect_to points_path
     else
-      render :new
+      flash[:danger] = "拠点情報の追加は失敗しました。<br>" + @point.errors.full_messages.join("<br>")
     end
+      redirect_to points_path
   end  
   
   def edit
@@ -30,10 +30,10 @@ class PointsController < ApplicationController
     @point = Point.find(params[:id])
     if @point.update_attributes(points_params)
       flash[:success] = "拠点情報を更新しました。"
-      redirect_to points_path
     else
-      render :edit
+      flash[:danger] = "拠点情報の更新ができませんでした。<br>" + @point.errors.full_messages.join("<br>")
     end
+     redirect_to points_path
   end  
 
   def destroy
