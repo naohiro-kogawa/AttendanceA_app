@@ -10,8 +10,8 @@
     <!--  <h1 class="modal-title">基本情報編集</h1>-->
     <!--</div>-->
     <!--<div class="modal-body">-->
-          <%= form_with(xml: @users, local: true) do |f| %>
-            <%= render 'shared/error_messages', object: @user %>
+          <%= form_with model: @user do |f| %>
+            <!--<!%= render 'shared/error_messages', object: @user %>-->
 
             <%= f.label :name, class: "label-#{yield(:class_text)}" %>
             <%= f.text_field :name, class: "form-control" %>
