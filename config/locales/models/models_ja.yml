@@ -5,30 +5,30 @@ ja:
       attendance: 勤怠
       point: 拠点
     attributes:
-        user:
-          id: ID
-          name: 名前
-          email: メールアドレス
-          department: 所属
-          basic_time: 基本勤務時間
-          work_time: 勤務時間
-          password: パスワード
-          password_confirmation: パスワード再入力
-          created_at: 作成日
-          updated_at: 更新日
-          employee_number: 社員番号
-          uid: カードID
-          designated_work_start_time: 指定勤務開始時間
-          designated_work_end_time: 指定勤務終了時間
-          superior: 上長
-        attendance:
-          worked_on: 日付
-          started_at: 出勤時間
-          finished_at: 退勤時間
-          note: 備考
-          user: ユーザーID
-        point:
-          point_name: 拠点名
-          point_number: 拠点番号
-          attendance_type: 勤怠種類
+      user:
+         id: ID
+         name: 名前
+         email: メールアドレス
+         department: 所属
+         basic_time: 基本勤務時間
+         work_time: 勤務時間
+         password: パスワード
+         password_confirmation: パスワード再入力
+         created_at: 作成日
+         updated_at: 更新日
+         employee_number: 社員番号
+         uid: カードID
+         designated_work_start_time: 指定勤務開始時間
+         designated_work_end_time: 指定勤務終了時間
+         superior: 上長
+      attendance:
+         worked_on: 日付
+         started_at: 出勤時間
+         finished_at: 退勤時間
+         note: 備考
+         user: ユーザーID
+      point:
+         point_name: 拠点名
+         point_number: 拠点番号
+         attendance_type: 勤怠種類
           
