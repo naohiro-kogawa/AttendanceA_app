@@ -26,6 +26,7 @@ Rails.application.routes.draw do
       patch 'edit_basic_info'
       get 'attendances/edit_one_month' # 勤怠編集ページへのroute。
       patch 'attendances/update_one_month' # 勤怠編集ページ：まとめて更新です。
+      patch  'update_by_admin', as: "update_by_admin" #アコーディオン更新
     end
     resources :attendances, only: :update # updateアクション以外のルーティングを制限:updateのみ使うってこと。
   end

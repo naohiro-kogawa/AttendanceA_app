@@ -6,8 +6,14 @@ class UsersController < ApplicationController
  before_action :admin_or_correct_user, only: :show
  before_action :set_one_month, only: :show
 
+  require 'csv'
   def index
     @users = User.paginate(page: params[:page]).search(params[:search])
+      if current_user.admin?
+      else
+        redirect_to(root_path) 
+        flash[:warning] = "ほかのユーザにはアクセスできません"
+      end
   end
 
   def show
@@ -32,6 +38,16 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def update_by_admin
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "ユーザー情報を更新しました。"
+      redirect_to users_path
+    else
+      redirect_to users_path
+    end
+  end
+
   def update
     if @user.update_attributes(user_params)
       flash[:success] = "ユーザー情報を更新しました。"
@@ -48,7 +64,7 @@ class UsersController < ApplicationController
   end
 
   def edit_basic_info
-  end
+  end  
 
   def update_basic_info
     if @user.update_attributes(basic_info_params)
@@ -62,10 +78,11 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :department, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :department, :password, :password_confirmation, :basic_time, :employee_number, :uid, :designated_work_start_time, :designated_work_end_time)
     end
 
     def basic_info_params
       params.require(:user).permit(:department, :basic_time, :work_time)
+
     end
 end
