@@ -22,8 +22,7 @@ Rails.application.routes.draw do
 
   resources :users do
     member do
-      get 'edit_basic_info'
-      patch 'edit_basic_info'
+     get    'users/:id/edit_basic_info',to:'users#edit_basic_info',as:'edit_basic_info'
       get 'attendances/edit_one_month' # 勤怠編集ページへのroute。
       patch 'attendances/update_one_month' # 勤怠編集ページ：まとめて更新です。
       patch  'update_by_admin', as: "update_by_admin" #アコーディオン更新
