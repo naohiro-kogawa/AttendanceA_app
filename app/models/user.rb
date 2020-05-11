@@ -64,4 +64,11 @@ class User < ApplicationRecord
       all #全て表示。User.は省略
     end
   end  
+  
+  # ユーザー出勤中のユーザーを表示します。
+  def User.get_working_user
+    joins(:attendances).where(attendances:{worked_on: Date.today, finished_at: nil}).where.not(attendances: {started_at: nil})
+  end
+  
+  
 end
