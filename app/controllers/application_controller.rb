@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   $days_of_the_week = %w{日 月 火 水 木 金 土}
+  
+  # ログイン後のページを指定します。
+  # def after_sign_in_path_for(resource) 
+  #   root_path
+  # end
 
   # beforフィルター
 
